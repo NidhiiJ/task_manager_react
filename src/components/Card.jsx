@@ -1,31 +1,21 @@
-import { useContext } from "react";
-import { MyContext } from "../MyContext";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-const cards = ({ title, stage, description }) => {
-  const { setEditForm, setShowModal } = useContext(MyContext);
-
-  const handleEditClick = () => {
-    setShowModal(true);
-    setEditForm(true)
-  };
+const cards = ({ title, stage, description,handleEditClick,handleDelete }) => {
 
   return (
     <div className="card-container">
-      <div className="card" style={{ width: "18rem" }}>
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <h6 className="card-subtitle ">{stage}</h6>
-          <p className="card-text">{description}</p>
-
-          <button
-            className="card-link btn btn-primary"
-            onClick={handleEditClick}
-          >
-            Edit
-          </button>
-          <button className=" card-link btn btn-danger ">Delete</button>
-        </div>
-      </div>
+      <Card style={{ width: '18rem' }} >
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Subtitle>{stage}</Card.Subtitle>
+        <Card.Text>
+          {description}
+        </Card.Text>
+        <Card.Link><Button variant="primary" onClick={handleEditClick}>Edit</Button></Card.Link>
+        <Card.Link><Button variant="danger" onClick={handleDelete}>Delete</Button></Card.Link>
+      </Card.Body>
+    </Card>
     </div>
   );
 };

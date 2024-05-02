@@ -1,31 +1,44 @@
+import { v4 as uuidv4 } from 'uuid';
+
+const generateUniqueId = () => {
+  const newUuid = uuidv4(); 
+  return newUuid;
+};
+
 const tasks = [
     {
-      title: "Task1",
+      id: generateUniqueId(),
+      title: "Task one",
       stage: "Assigned",
       description: "Get fruits and vegetables from raju uncle",
     },
     {
-      title: "Task2",
+      id: generateUniqueId(),
+      title: "Task two",
       stage: "Process",
       description: "Get fruits and vegetables from raju uncle",
     },
     {
-      title: "Task3",
+      id: generateUniqueId(),
+      title: "Task three",
       stage: "Completed",
       description: "Get fruits and vegetables from raju uncle",
     },
     {
-      title: "Task4",
+      id: generateUniqueId(),
+      title: "Task four",
       stage: "Assigned",
       description: "Get fruits and vegetables from raju uncle",
     },
     {
-      title: "Task5",
+      id: generateUniqueId(),
+      title: "Task five",
       stage: "Process",
       description: "Get fruits and vegetables from raju uncle",
     },
     {
-      title: "Task6",
+      id: generateUniqueId(),
+      title: "Task six",
       stage: "Assigned",
       description: "Get fruits and vegetables from raju uncle",
     },

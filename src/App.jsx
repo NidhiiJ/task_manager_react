@@ -1,10 +1,7 @@
 import "./App.css";
-import Card from "./components/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min";
 import Column from "./components/Column";
 import { useState, useEffect } from "react";
-
 import { MyContext } from "./MyContext";
 import tasks from "./components/tasks";
 import ModalForm from "./components/ModalForm";
@@ -20,9 +17,8 @@ function App() {
   useEffect(() => {
     setallTasks(loadedTasks)
   }, [])
+
   
-
-
   const handleShowModal = () => setShowModal(true);
 
   const contexts = {showModal, setShowModal, allTasks, setallTasks, editForm, setEditForm}
