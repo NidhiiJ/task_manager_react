@@ -1,11 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { MyContext } from '../MyContext';
+import {useContext} from 'react'
 
-const cards = ({ title, stage, description,handleEditClick,handleDelete }) => {
-
+const cards = ({ title, stage,id, description,handleEditClick,handleDelete }) => {
+  // setActive card id for drag card context
+const {setActive} = useContext(MyContext)
   return (
-    <div className="card-container">
-      <Card style={{ width: '18rem' }} >
+    <div className="card-container" >
+      <Card style={{ width: '18rem' }} draggable id={id} onDragStart={()=>{setActive(id)}} onDragEnd={()=>{setActive(null)}} >
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle>{stage}</Card.Subtitle>

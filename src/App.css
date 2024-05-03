@@ -28,3 +28,7 @@
 .card-container{
     padding: 1rem 0
 }
+
+#dropArea{
+    height: 100vh
+}

@@ -11,17 +11,34 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [allTasks, setallTasks] = useState([]);
   const [editForm, setEditForm] = useState(false)
+  const [active, setActive] =useState(null)
+
   const loadedTasks = tasks
   const categories = ["Assigned", "Process", "Completed"];
   
+  // set tasks on load
   useEffect(() => {
     setallTasks(loadedTasks)
   }, [])
 
+  // function for card drag and drop in column
+  const onDrop= (stage)=>{
+    console.log(`${active} is going to be ${stage}`)
+    const task = allTasks.filter((x)=>x.id == active)
+    const updatedTask = {
+      ...task[0],
+      stage : stage
+    }
+    const newList = [...allTasks.filter((x)=>x.id !== active),updatedTask]
+    setallTasks(newList)
+    setActive(false)
+  }
   
   const handleShowModal = () => setShowModal(true);
 
-  const contexts = {showModal, setShowModal, allTasks, setallTasks, editForm, setEditForm}
+  // contexts for ContextApi
+  const contexts = {showModal, setShowModal, allTasks, setallTasks, editForm, setEditForm, active, setActive}
+
   return (
     <>
     <MyContext.Provider value={contexts}>
@@ -38,7 +55,7 @@ function App() {
         </section>
         <div className="columns-container">
           {categories.map((x, i) => {
-            return <Column key={i} category={x} />;
+            return <Column key={i} category={x} onDrop={()=>onDrop(x)}/>;
           })}
         </div>
       </MyContext.Provider>
