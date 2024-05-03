@@ -1,5 +1,6 @@
 # Task Management App
 [Link for app hosted on github pages](https://nidhiij.github.io/task_manager_react/)
+Note: Functionality focused Project. Design and Responsiveness were not given priority
 
 ## Design Approach
 -  ### Separation of Concerns: 
