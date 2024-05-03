@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { MyContext } from '../MyContext';
-import {useContext} from 'react'
+import React, {useContext} from 'react'
 
 const cards = ({ title, stage,id, description,handleEditClick,handleDelete }) => {
   // setActive card id for drag card context
